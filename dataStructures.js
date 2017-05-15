@@ -133,9 +133,9 @@ function reSort(tree, currentNumber, newIndex, visitedIndexes) {
   if (!visitedIndexes) {
     var visitedIndexes = { left: [], right: []};
   }
-  var elem = getResortElement(tree, visitedIndexes, currentNumber);
+  var sortElement = getResortElement(tree, visitedIndexes, currentNumber);
 
-  if (!elem) {
+  if (!sortElement) {
     return tree;
   }
 
@@ -144,12 +144,12 @@ function reSort(tree, currentNumber, newIndex, visitedIndexes) {
       set left field, increment index and number and mark like changed
   */
 
-  if (elem.left === currentNumber) {
-    elem.left = newIndex;
-    visitedIndexes.left.push(elem.id);
-  } else if (elem.right === currentNumber) {
-    elem.right = newIndex;
-    visitedIndexes.right.push(elem.id);
+  if (sortElement.left === currentNumber) {
+    sortElement.left = newIndex;
+    visitedIndexes.left.push(sortElement.id);
+  } else if (sortElement.right === currentNumber) {
+    sortElement.right = newIndex;
+    visitedIndexes.right.push(sortElement.id);
   }
 
   newIndex = incremmentCommand(newIndex);
@@ -164,8 +164,8 @@ function checkExistElement(element, message) {
 }
 
 function findElementWithParent(tree, parent) {
-    return tree.findIndex(function (elem) {
-        return elem.parent === parent;
+    return tree.findIndex(function (element) {
+        return element.parent === parent;
     });
 }
 
@@ -184,7 +184,6 @@ function isElementHasOneChild(tree, element) {
 }
 
 function getChildrenInNestedTree(tree, element) {
-  debugger;
   return tree.filter(function (item) {
     return item.left === element.left + 1 || item.right === element.right - 1;
   });

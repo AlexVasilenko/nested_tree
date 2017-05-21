@@ -1,0 +1,20 @@
+{
+  "name": "red_black_tree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register src/**/test.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.4.1",
+    "ts-node": "^3.0.4",
+    "typings": "^2.1.1"
+  }
+}
